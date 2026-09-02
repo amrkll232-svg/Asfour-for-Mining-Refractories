@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عصفور — التعدين والمواد الحرارية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#152238;
+    --navy-2:#1f3253;
+    --clay:#DD5A2A;
+    --clay-dim:#B94A22;
+    --stone:#EFEAE0;
+    --stone-2:#E3DCCC;
+    --ink:#211D18;
+    --paper:#FAF8F3;
+    --line:rgba(21,34,56,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Tajawal', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.75;
+    text-align:right;
+  }
+  h1,h2,h3,.brand,nav a,.btn{ font-family:'Cairo', sans-serif; }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--navy);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  header .wrap{ display:flex; align-items:center; justify-content:space-between; height:76px; }
+  .brand{ display:flex; align-items:center; gap:10px; color:#fff; }
+  .brand img{ height:36px; width:auto; }
+  nav{ display:flex; gap:34px; }
+  nav a{
+    color:#DCE1EA; font-size:17px; font-weight:700; letter-spacing:0;
+    padding:6px 0; border-bottom:2px solid transparent; transition:border-color .2s, color .2s;
+  }
+  nav a:hover{ color:#fff; border-color:var(--clay); }
+
+  /* Hero */
+  .hero{
+    position:relative; min-height:88vh; display:flex; align-items:flex-end;
+    background:#0d1526;
+  }
+  .hero img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.55;
+  }
+  .hero::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(11,17,30,0.92) 5%, rgba(11,17,30,0.35) 55%, rgba(11,17,30,0.15) 100%);
+  }
+  .hero-content{ position:relative; z-index:2; padding:64px 32px 72px; max-width:1180px; margin:0 auto; width:100%; }
+  .hero-kicker{ color:var(--clay); font-weight:700; font-size:18px; margin-bottom:14px; }
+  .hero h1{
+    color:#fff; font-weight:800; font-size:clamp(34px, 5.6vw, 66px); line-height:1.25;
+    max-width:16ch;
+  }
+  .hero p{ color:#C9D0DD; font-size:19px; max-width:52ch; margin-top:22px; }
+  .hero-stats{ display:flex; gap:48px; margin-top:44px; flex-wrap:wrap; }
+  .hero-stats div{ border-right:2px solid var(--clay); padding-right:14px; }
+  .hero-stats b{ display:block; color:#fff; font-size:30px; font-weight:800; font-family:'Cairo', sans-serif; }
+  .hero-stats span{ color:#A9B2C2; font-size:15px; }
+
+  /* Section basics */
+  section{ padding:96px 0; }
+  .eyebrow{ color:var(--clay); font-weight:700; font-size:15px; margin-bottom:10px; }
+  h2{ font-weight:800; font-size:clamp(28px,3.6vw,40px); line-height:1.35; max-width:16ch; }
+  .lede{ font-size:18px; color:#454136; max-width:62ch; margin-top:18px; }
+
+  /* About */
+  .about{ background:var(--stone); }
+  .about-grid{ display:grid; grid-template-columns:.95fr 1.05fr; gap:56px; align-items:center; margin-top:56px; }
+  .about-grid img{ border-radius:2px; }
+  .about-text p{ color:#403c33; font-size:16.5px; margin-top:16px; }
+  .about-text p:first-of-type{ margin-top:0; }
+
+  /* Products */
+  .products{ background:var(--paper); }
+  .product-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:56px; background:var(--line); }
+  .product-card{ background:var(--paper); }
+  .product-card .pimg{ height:230px; overflow:hidden; }
+  .product-card .pimg img{ height:100%; width:100%; object-fit:cover; transition:transform .5s ease; }
+  .product-card:hover .pimg img{ transform:scale(1.04); }
+  .product-body{ padding:26px 24px 30px; }
+  .product-body h3{ font-size:22px; font-weight:700; }
+  .product-body p{ color:#4c4738; font-size:15px; margin-top:8px; }
+  .spec-row{ display:flex; justify-content:space-between; border-top:1px solid var(--line); padding:14px 24px; font-size:14.5px; color:#5a5646; }
+  .spec-row b{ color:var(--ink); font-weight:700; }
+
+  /* Operations band */
+  .ops{ background:var(--navy); color:#fff; }
+  .ops .wrap{ display:grid; grid-template-columns:.9fr 1.1fr; gap:64px; align-items:center; }
+  .ops h2{ color:#fff; }
+  .ops p{ color:#B9C1D0; font-size:16.5px; margin-top:16px; }
+  .ops-figures{ display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:34px; }
+  .ops-figures img{ height:170px; width:100%; object-fit:cover; }
+
+  /* Global / booth */
+  .global{ background:var(--stone-2); }
+  .global-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0; align-items:stretch; }
+  .global-grid .gimg{ min-height:420px; }
+  .global-grid .gimg img{ height:100%; width:100%; object-fit:cover; }
+  .global-text{ padding:64px 56px; display:flex; flex-direction:column; justify-content:center; }
+  .global-text p{ color:#403c33; font-size:16.5px; margin-top:16px; }
+
+  /* Team */
+  .team{ background:var(--paper); }
+  .team-grid{ display:grid; grid-template-columns:.8fr 1.2fr; gap:24px; margin-top:56px; }
+  .team-grid img{ border-radius:2px; height:100%; object-fit:cover; }
+  .team-grid .tall{ height:520px; }
+  .team-grid .stack{ display:flex; flex-direction:column; gap:24px; }
+  .team-grid .stack img{ height:248px; }
+
+  /* CTA / contact */
+  .cta{ background:var(--clay); color:#fff; }
+  .cta .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px; }
+  .cta h2{ color:#fff; max-width:22ch; }
+  .btn{
+    display:inline-block; background:var(--navy); color:#fff; padding:16px 30px;
+    font-weight:700; font-size:18px; border-radius:2px; border:1px solid rgba(255,255,255,0.15);
+    transition:background .2s;
+  }
+  .btn:hover{ background:#0d1526; }
+
+  footer{ background:var(--navy); color:#9aa4b6; padding:48px 0 40px; }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  footer .brand img{ height:28px; }
+  footer .fine{ font-size:14px; }
+
+  @media (max-width: 860px){
+    nav{ display:none; }
+    .about-grid, .ops .wrap, .global-grid, .team-grid{ grid-template-columns:1fr; }
+    .product-grid{ grid-template-columns:1fr; }
+    .team-grid .tall{ height:320px; }
+    .global-text{ padding:44px 24px; }
+    section{ padding:64px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/logo.png" alt="عصفور"></a>
+    <nav>
+      <a href="#about">من نحن</a>
+      <a href="#products">المنتجات</a>
+      <a href="#operations">العمليات</a>
+      <a href="#team">الفريق</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <img src="assets/kiln.jpg" alt="فرن دوار في مصنع أسمنت مبطّن بمنتجات عصفور الحرارية">
+  <div class="hero-content">
+    <div class="hero-kicker">التعدين والمواد الحرارية</div>
+    <h1>تكسيات مصمَّمة لتتحمّل قلب الفرن</h1>
+    <p>عصفور تصمم وتصنّع الطوب الحراري والمواد الأحادية لأفران الأسمنت والصلب والصناعات الثقيلة — بأيدي نفس الفريق اللي بيركّبها.</p>
+    <div class="hero-stats">
+      <div><b>+30</b><span>سنة في الصناعة</span></div>
+      <div><b>آلاف الأطنان</b><span>تُشحن كل سنة</span></div>
+      <div><b>رائد إقليمي</b><span>في التعدين والمواد الحرارية</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="eyebrow">نبذة عن عصفور</div>
+    <h2>المواد الحرارية بجودة الفريق اللي بيصنّعها</h2>
+    <div class="about-grid">
+      <img src="assets/team-crane.jpg" alt="فنيّو عصفور أثناء العمل على معدة تعدين ثقيلة">
+      <div class="about-text">
+        <p>شركة عصفور للتعدين والمواد الحرارية بتوفر منذ أكتر من ثلاثين سنة الخامات والمنتجات الحرارية الجاهزة اللي بتخلّي الأفران الدوارة والمغارف والأفران الصناعية تشتغل تحت درجات حرارة قاسية.</p>
+        <p>وراء كل طبلية طوب فيه ورشة كاملة: لحّامين وفنيين ميكانيكا بيصلّحوا ويصيانوا نفس المعدات اللي بتُعدّن وتشكّل وتنقل الخامة — نفس الوشوش اللي شايفها في صور الصفحة دي.</p>
+        <p>الجمع بين خامات التعدين، تصنيع المواد الحرارية، والخبرة الميكانيكية الداخلية، هو اللي بيخلّي عصفور تقدر تدعم المصنع من الخامة الأولية لحد التكسية النهائية.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="eyebrow">المنتجات</div>
+    <h2>طوب حراري وأشكال مقاس حسب الطلب</h2>
+    <p class="lede">من الطوب القياسي لحد الأشكال الخاصة المحفورة لفتحات الحارقات والفوهات، كل شكل بيتصنّع بالمقاسات ودرجة التحمّل الحراري اللي يطلبها تصميم الفرن.</p>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="pimg"><img src="assets/brick-block.jpg" alt="طوب حراري بفتحة محفورة لحارق"></div>
+        <div class="product-body">
+          <h3>أشكال خاصة</h3>
+          <p>قطع طوب حراري محفورة ومشغّلة لفتحات الحارقات والفوهات وأي فتحة خاصة تانية في الفرن.</p>
+        </div>
+        <div class="spec-row"><span>الخامة</span><b>طفلة حرارية عالية الألومينا</b></div>
+      </div>
+      <div class="product-card">
+        <div class="pimg"><img src="assets/brick-pyramids.jpg" alt="عينات طوب حراري متراصة في المخزن"></div>
+        <div class="product-body">
+          <h3>طوب قياسي</h3>
+          <p>طوب مستقيم ومدرّج مخزّن بمقاسات متدرجة، جاهز للسحب فورًا في أعمال إعادة تكسية الأفران.</p>
+        </div>
+        <div class="spec-row"><span>الاستخدام</span><b>أفران دوارة · أفران صناعية · مغارف</b></div>
+      </div>
+      <div class="product-card">
+        <div class="pimg"><img src="assets/pallets-outdoor.jpg" alt="طبالي طوب حراري متراصة في فناء التخزين"></div>
+        <div class="product-body">
+          <h3>توريد بالجملة</h3>
+          <p>طبالي مغلّفة ومكتوب عليها رقم التشغيلة، جاهزة في الفناء للتحميل والشحن.</p>
+        </div>
+        <div class="spec-row"><span>التسليم</span><b>طبلية أو أكياس بالجملة</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ops" id="operations">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" style="color:#F0956C;">العمليات</div>
+      <h2>من الفناء للشاحنة</h2>
+      <p>الخامة بتتحرك جوّه المصنع على نفس جدول التوقف الميعادي بتاع العميل. التحميل والوزن والشحن بيتنظّموا عشان أي عملية إعادة تكسية متتأخرش بسبب اللوجستيات.</p>
+    </div>
+    <div class="ops-figures">
+      <img src="assets/forklift.jpg" alt="رافعة شوكية بتحمّل أكياس عصفور الكبيرة للشحن">
+      <img src="assets/team-machine.jpg" alt="فنيين بجانب قطعة معدة كبيرة بعد الصيانة">
+      <img src="assets/pallets-outdoor.jpg" alt="طبالي طوب حراري في فناء التخزين" style="grid-column:span 2;">
+    </div>
+  </div>
+</section>
+
+<section class="global">
+  <div class="global-grid">
+    <div class="gimg"><img src="assets/booth.jpg" alt="جناح عصفور في معرض دولي متخصص"></div>
+    <div class="global-text">
+      <div class="eyebrow">في المعارض</div>
+      <h2>رائدون إقليميًا، وحاضرون على المسرح العالمي</h2>
+      <p>عصفور بتعرض خطوط منتجاتها للتعدين والمواد الحرارية في المعارض المتخصصة، وبتقدّم نفس المنتجات اللي شايفها في الصفحة دي للمشترين ومهندسي المصانع من كل المنطقة.</p>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="eyebrow">الفريق</div>
+    <h2>الناس اللي على أرض الورشة وعلى الطريق</h2>
+    <div class="team-grid">
+      <div class="stack">
+        <img src="assets/team-crane.jpg" alt="فنيين واقفين تحت قطعة معدة تعدين">
+        <img src="assets/team-machine.jpg" alt="زميلين بجانب معدة بعد إعادة تأهيلها في الورشة">
+      </div>
+      <img class="tall" src="assets/team-night.jpg" alt="فريق عصفور مجتمعين مساءً">
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>تواصل معانا لأوردر التوريد أو إعادة التكسية الجاية</h2>
+    <a class="btn" href="mailto:info@asfour-mining.com">تواصل معنا</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/logo.png" alt="عصفور"></a>
+    <span class="fine">© عصفور للتعدين والمواد الحرارية</span>
+  </div>
+</footer>
+
+</body>
+</html>
